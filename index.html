@@ -3,345 +3,260 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portofolio Digital Arshavin Dega Nazaro (Ega) - Siswa XI TJKT 1 SMKN 1 Blitar. Spesialisasi Networking, Database MySQL, dan Pemrograman.">
-    <title>Portofolio Digital | Arshavin Dega Nazaro</title>
-    
-    <!-- Favicon Tab Browser -->
-    <link rel="icon" type="image/png" href="assets/img/logo-smkn1blitar.png">
-    
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- CSS Utama -->
+    <title>Portofolio - Arshavin Dega Nazaro</title>
+    <!-- Menghubungkan file CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
+    <!-- FontAwesome untuk ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+<div id="scroll-progress"></div>
 <body>
 
-    <!-- 1. INDIKATOR GARIS SCROLL -->
-    <div id="scroll-progress"></div>
-
-    <!-- 2. WELCOME / INTRO SCREEN FUTURISTIK (CYBER EDITION) -->
+    <!-- WELCOME / INTRO SCREEN ANIMATED -->
     <div id="welcome-screen">
-        <div class="cyber-bg-overlay"></div>
         <div class="welcome-content">
-            <div class="welcome-logo-ring">
-                <i class="fas fa-terminal welcome-icon"></i>
+            <div class="welcome-icon">
+                <i class="fas fa-code"></i>
             </div>
-            <h1 class="welcome-title">PORTFOLIO<span>.OS</span></h1>
-            <p class="welcome-sub"><span id="typewriter"></span><span class="cursor">|</span></p>
-            
-            <div class="welcome-status">
-                <span id="loading-status">INITIALIZING SYSTEM...</span>
-                <span id="loading-percent">0%</span>
-            </div>
-            
+            <h1 class="welcome-title">Selamat Datang</h1>
+            <p class="welcome-sub">Portofolio Digital | <span>Arshavin Dega Nazaro</span></p>
             <div class="welcome-loading-bar">
-                <div class="welcome-progress" id="welcomeProgress"></div>
+                <div class="welcome-progress"></div>
             </div>
         </div>
     </div>
 
-    <!-- 3. HEADER & NAVIGASI -->
+    <!-- HEADER & NAVIGASI -->
     <header>
         <nav class="navbar">
-            <a href="#home" class="logo">Ega<span>.TJKT</span></a>
-            <ul class="nav-links">
-                <li><a href="#home">Beranda</a></li>
-                <li><a href="#about">Tentang</a></li>
-                <li><a href="#education">Pendidikan</a></li>
-                <li><a href="#skills">Keahlian</a></li>
-                <li><a href="#projects">Proyek</a></li>
-                <li><a href="#achievements">Prestasi</a></li>
-                <li><a href="#contact">Kontak</a></li>
-            </ul>
-            <button id="theme-toggle" aria-label="Ganti Tema Gelap/Terang">
-                <i class="fas fa-moon"></i>
+            <div class="logo">
+                <img src="assets/img/logo.jpg" alt="Logo SMKN 1 Blitar" class="school-logo">
+                <span>Portofolio</span>
+            </div>
+            <button class="nav-toggle" id="navToggle" aria-label="toggle navigation">
+                <i class="fas fa-bars"></i>
             </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#achievements">Achievements</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><button id="themeToggle" class="theme-btn"><i class="fas fa-moon"></i></button></li>
+            </ul>
         </nav>
     </header>
 
-    <main>
-        <!-- 4. SECTION HERO (BERANDA) -->
-        <section id="home" class="hero reveal">
-            <div class="hero-content">
-                <span class="hero-greeting">Halo, Saya</span>
-                <h1>Arshavin Dega Nazaro</h1>
-                <p class="hero-subtitle">
-                    Siswa XI TJKT 1 | <span id="typing-role"></span><span class="typing-cursor">|</span>
-                </p>
-                <div class="hero-badges">
-                    <span class="badge"><i class="fas fa-network-wired"></i> XI TJKT 1 (Absen 10)</span>
-                    <span class="badge"><i class="fas fa-school"></i> SMKN 1 Blitar</span>
-                </div>
-                <div class="hero-buttons" style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 1.5rem;">
-                    <a href="#projects" class="btn">Lihat Proyek Saya</a>
-                    <a href="assets/pdf/CV_Arshavin_Dega_Nazaro.pdf" download class="btn" style="background: transparent; border: 2px solid var(--primary-color); color: var(--text-color);">
-                        <i class="fas fa-download"></i> Unduh CV
-                    </a>
-                </div>
+    <!-- HERO SECTION -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Halo, saya <span>Arshavin Dega Nazaro</span></h1>
+            <p>Siswa XI TJKT 1 | SMKN 1 Blitar</p>
+            <a href="#projects" class="btn">Lihat Proyek Saya</a>
+            
+            <!-- Objek Badges Keahlian -->
+            <div class="hero-badges">
+                <span class="badge"><i class="fas fa-network-wired"></i> Networking & Subnetting</span>
+                <span class="badge"><i class="fas fa-database"></i> MySQL & Database</span>
+                <span class="badge"><i class="fab fa-java"></i> Java OOP</span>
+                <span class="badge"><i class="fas fa-code"></i> Web Development</span>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- 5. SECTION TENTANG SAYA & BIODATA -->
-        <section id="about" class="about reveal">
-            <h2>Tentang Saya</h2>
+    <!-- SECTION ABOUT ME (dengan class reveal) -->
+    <section id="about" class="about reveal">
+        <h2>Tentang Saya</h2>
+        <div class="about-container">
+            <!-- Kolom Kiri: Foto Profil & Deskripsi -->
             <div class="about-profile-box">
-                <img src="assets/img/foto-profil.jpg" alt="Foto Profil Arshavin Dega Nazaro" class="profile-img">
-                <p>
-                    Selamat datang di portofolio digital saya. Nama saya Ega dari kelas XI TJKT 1 (No. Absen 10). 
-                    Portofolio ini disusun sebagai wadah dokumentasi dan unjuk kerja atas kompetensi yang saya pelajari 
-                    di bidang Teknik Jaringan Komputer dan Telekomunikasi, administrasi basis data, serta pemrograman.
-                </p>
-
-                <!-- Objek Biodata Singkat -->
-                <div class="biodata-grid">
-                    <div class="biodata-item tilt-card">
-                        <div class="biodata-icon">
-                            <i class="fas fa-calendar-alt"></i>
-                        </div>
-                        <div class="biodata-info">
-                            <span class="biodata-label">Tanggal Lahir</span>
-                            <p class="biodata-value">DD Bulan YYYY</p>
-                        </div>
-                    </div>
-
-                    <div class="biodata-item tilt-card">
-                        <div class="biodata-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <div class="biodata-info">
-                            <span class="biodata-label">Tempat Tinggal</span>
-                            <p class="biodata-value">Blitar, Jawa Timur</p>
-                        </div>
-                    </div>
+                <img src="assets/img/profile.jpg" alt="Foto Arshavin Dega Nazaro" class="profile-img">
+                <div class="about-text">
+                    <p>Nama saya Ega dari kelas XI TJKT 1 (No. Absen 10). Portofolio ini disusun sebagai wadah dokumentasi dan unjuk kerja atas kompetensi yang saya pelajari di bidang Teknik Jaringan Komputer dan Telekomunikasi, administrasi basis data, serta pemrograman.</p>
                 </div>
             </div>
-        </section>
 
-        <!-- 6. SECTION STATISTIK (ANIMATED COUNTER & 3D TILT CARDS) -->
-        <section id="stats" class="stats-section reveal">
-            <div class="stats-container">
-                <div class="stat-card tilt-card">
-                    <i class="fas fa-trophy stat-icon"></i>
-                    <h3 class="counter" data-target="5">0</h3>
-                    <p>Prestasi & Sertifikat</p>
-                </div>
-
-                <div class="stat-card tilt-card">
-                    <i class="fas fa-database stat-icon"></i>
-                    <div class="stat-number"><span class="counter" data-target="90">0</span>%</div>
-                    <p>Database & MySQL</p>
-                </div>
-
-                <div class="stat-card tilt-card">
-                    <i class="fab fa-java stat-icon"></i>
-                    <div class="stat-number"><span class="counter" data-target="70">0</span>%</div>
-                    <p>Java OOP</p>
-                </div>
-
-                <div class="stat-card tilt-card">
-                    <i class="fas fa-graduation-cap stat-icon"></i>
-                    <h3 class="counter" data-target="2">0</h3>
-                    <p>Riwayat Pendidikan</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- 7. SECTION RIWAYAT PENDIDIKAN -->
-        <section id="education" class="education reveal">
-            <h2>Riwayat Pendidikan</h2>
-            <div class="education-grid">
-                <div class="edu-card tilt-card">
-                    <img src="assets/img/logo-smkn1blitar.png" alt="Logo SMKN 1 Blitar" class="edu-logo" style="width: 80px; height: auto; margin: 0 auto 1rem; display: block;">
-                    <h3>SMKN 1 Blitar</h3>
-                    <span class="edu-major">Teknik Jaringan Komputer dan Telekomunikasi (XI TJKT 1)</span>
-                    <p class="edu-address">
-                        <i class="fas fa-map-pin"></i> Jl. Kenari No.30, Kelurahan Plosokerep, Kecamatan Sananwetan, Kota Blitar, Jawa Timur 66134
-                    </p>
-                </div>
-
-                <div class="edu-card tilt-card">
-                    <div class="edu-icon-box" style="font-size: 2.5rem; color: var(--primary-color); margin-bottom: 1rem;">
-                        <i class="fas fa-school"></i>
+            <!-- Kolom Kanan: Keahlian & Riwayat Sekolah -->
+            <div class="skills-education-container">
+                <div class="skills-container">
+                    <h3>Keahlian Saya</h3>
+                    <div class="skill-box">
+                        <span class="skill-name">Computer Network & IP Subnetting</span>
+                        <div class="skill-bar"><div class="skill-per html" style="width: 90%;">90%</div></div>
                     </div>
-                    <h3>MTs Darussalam Kademangan</h3>
-                    <span class="edu-major">Pendidikan Menengah Pertama</span>
-                    <p class="edu-address">Kademangan, Kabupaten Blitar, Jawa Timur</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- 8. SECTION KEAHLIAN (SKILLS) -->
-        <section id="skills" class="skills reveal">
-            <h2>Keahlian Teknis</h2>
-            <div class="skills-container">
-                <div class="skill-item">
-                    <div class="skill-header">
-                        <span><i class="fas fa-database"></i> Database & MySQL Administration</span>
-                        <span>90%</span>
+                    <div class="skill-box">
+                        <span class="skill-name">Database & MySQL</span>
+                        <div class="skill-bar"><div class="skill-per db" style="width: 90%;">90%</div></div>
                     </div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" style="width: 90%;"></div>
+                    <div class="skill-box">
+                        <span class="skill-name">Java Programming (OOP)</span>
+                        <div class="skill-bar"><div class="skill-per java" style="width: 70%;">70%</div></div>
                     </div>
                 </div>
 
-                <div class="skill-item">
-                    <div class="skill-header">
-                        <span><i class="fab fa-java"></i> Java Object-Oriented Programming (OOP)</span>
-                        <span>70%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" style="width: 70%;"></div>
-                    </div>
-                </div>
-
-                <div class="skill-item">
-                    <div class="skill-header">
-                        <span><i class="fas fa-network-wired"></i> Jaringan Komputer & Telekomunikasi</span>
-                        <span>85%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" style="width: 85%;"></div>
-                    </div>
-                </div>
-
-                <div class="skill-item">
-                    <div class="skill-header">
-                        <span><i class="fas fa-code"></i> HTML, CSS & JavaScript</span>
-                        <span>85%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" style="width: 85%;"></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 9. SECTION PROYEK -->
-        <section id="projects" class="projects reveal">
-            <h2>Proyek Unggulan</h2>
-            <div class="projects-grid">
-                <div class="project-card tilt-card">
-                    <h3>Aplikasi Kasir Web (POS System)</h3>
-                    <p>Aplikasi transaksi kasir interaktif dengan form input barang, perhitungan subtotal otomatis, diskon kondisional, dan total pembayaran menggunakan HTML, CSS, dan JavaScript.</p>
-                    <div class="project-links" style="margin-top: 1rem; display: flex; gap: 1rem;">
-                        <a href="https://github.com/arshavin128" target="_blank" style="color: var(--primary-color); font-size: 0.9rem; font-weight: 600;">
-                            <i class="fab fa-github"></i> Source Code
-                        </a>
-                        <a href="#projects" style="color: var(--primary-color); font-size: 0.9rem; font-weight: 600;">
-                            <i class="fas fa-external-link-alt"></i> Live Demo
-                        </a>
-                    </div>
-                </div>
-
-                <div class="project-card tilt-card">
-                    <h3>Sistem Basis Data Perpustakaan (db_perpus)</h3>
-                    <p>Perancangan skema relasional MariaDB/MySQL meliputi DDL, DML, manajemen hak akses user (DCL petugas & tamu), indexing (idx_judul), serta relasi foreign key.</p>
-                    <div class="project-links" style="margin-top: 1rem; display: flex; gap: 1rem;">
-                        <a href="https://github.com/arshavin128" target="_blank" style="color: var(--primary-color); font-size: 0.9rem; font-weight: 600;">
-                            <i class="fab fa-github"></i> Source Code
-                        </a>
-                        <a href="#projects" style="color: var(--primary-color); font-size: 0.9rem; font-weight: 600;">
-                            <i class="fas fa-external-link-alt"></i> Dokumentasi
-                        </a>
-                    </div>
-                </div>
-
-                <div class="project-card tilt-card">
-                    <h3>Aplikasi Java OOP</h3>
-                    <p>Implementasi konsep pemrograman berorientasi objek dalam bahasa Java mencakup Abstract Class, Encapsulation, Inheritance, dan Polymorphism.</p>
-                    <div class="project-links" style="margin-top: 1rem; display: flex; gap: 1rem;">
-                        <a href="https://github.com/arshavin128" target="_blank" style="color: var(--primary-color); font-size: 0.9rem; font-weight: 600;">
-                            <i class="fab fa-github"></i> Source Code
-                        </a>
-                        <a href="#projects" style="color: var(--primary-color); font-size: 0.9rem; font-weight: 600;">
-                            <i class="fas fa-external-link-alt"></i> Detail Kode
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 10. SECTION PRESTASI & SERTIFIKAT (4 PENGHARGAAN + 1 SERTIFIKAT) -->
-        <section id="achievements" class="achievements reveal">
-            <h2>Prestasi & Sertifikat</h2>
-            <div class="achievements-grid">
-                <div class="achievement-card tilt-card">
-                    <img src="assets/img/prestasi-1.jpg" alt="Penghargaan 1" class="achievement-img">
-                    <h3>Penghargaan Akademik / Lomba 1</h3>
-                    <p>Dokumentasi pencapaian kompetensi dan prestasi sekolah.</p>
-                </div>
-
-                <div class="achievement-card tilt-card">
-                    <img src="assets/img/prestasi-2.jpg" alt="Penghargaan 2" class="achievement-img">
-                    <h3>Penghargaan Akademik / Lomba 2</h3>
-                    <p>Dokumentasi pencapaian kompetensi dan prestasi sekolah.</p>
-                </div>
-
-                <div class="achievement-card tilt-card">
-                    <img src="assets/img/prestasi-3.jpg" alt="Penghargaan 3" class="achievement-img">
-                    <h3>Penghargaan Akademik / Lomba 3</h3>
-                    <p>Dokumentasi pencapaian kompetensi dan prestasi sekolah.</p>
-                </div>
-
-                <div class="achievement-card tilt-card">
-                    <img src="assets/img/prestasi-4.jpg" alt="Penghargaan 4" class="achievement-img">
-                    <h3>Penghargaan Akademik / Lomba 4</h3>
-                    <p>Dokumentasi pencapaian kompetensi dan prestasi sekolah.</p>
-                </div>
-
-                <div class="achievement-card tilt-card">
-                    <img src="assets/img/sertifikat-1.jpg" alt="Sertifikat Kompetensi" class="achievement-img">
-                    <h3>Sertifikat Kompetensi</h3>
-                    <p>Sertifikasi penyelesaian pelatihan teknis dan kejuruan.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- 11. SECTION KONTAK -->
-        <section id="contact" class="contact reveal">
-            <h2>Hubungi Saya</h2>
-            <div class="contact-container">
-                <form action="https://formsubmit.co/arshavindganazaru266@gmail.com" method="POST" id="contactForm">
-                    <input type="text" name="name" placeholder="Nama Anda" required>
-                    <input type="email" name="email" placeholder="Email Anda" required>
-                    <textarea name="message" rows="5" placeholder="Pesan Anda..." required></textarea>
+                <!-- Bagian Riwayat Sekolah -->
+                <div class="education-container">
+                    <h3>Riwayat Pendidikan</h3>
                     
-                    <input type="hidden" name="_captcha" value="false">
-                    <input type="hidden" name="_subject" value="Pesan Baru dari Portofolio Web Ega!">
-                    
-                    <button type="submit" class="btn">Kirim Pesan</button>
-                </form>
+                    <div class="edu-card">
+                        <img src="assets/img/mts-darussalam.jpg" alt="MTs Darussalam Kademangan" class="edu-img">
+                        <div class="edu-info">
+                            <h4>MTs Darussalam Kademangan</h4>
+                            <p class="edu-major">Pendidikan Menengah Pertama</p>
+                            <p class="edu-year">2022 - 2025</p>
+                        </div>
+                    </div>
 
-                <div class="social-links">
-                    <a href="https://github.com/arshavin128" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                    <a href="https://instagram.com/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <div class="edu-card" style="margin-top: 1rem;">
+                        <img src="assets/img/smkn1blitar.jpg" alt="SMKN 1 Blitar" class="edu-img">
+                        <div class="edu-info">
+                            <h4>SMKN 1 Blitar</h4>
+                            <p class="edu-major">XI Teknik Jaringan Komputer dan Telekomunikasi (TJKT)</p>
+                            <p class="edu-year">2025 - Sekarang</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
+    
+    <!-- SECTION STATISTIK (ANIMATED COUNTER & 3D TILT CARDS) -->
+    <section id="stats" class="stats-section reveal">
+        <div class="stats-container">
+            <!-- Kartu Statistik 1 -->
+            <div class="stat-card tilt-card">
+                <i class="fas fa-trophy stat-icon"></i>
+                <h3 class="counter" data-target="5">0</h3>
+                <p>Prestasi & Sertifikat</p>
+            </div>
 
-    <!-- 12. FOOTER -->
+            <!-- Kartu Statistik 2 -->
+            <div class="stat-card tilt-card">
+                <i class="fas fa-database stat-icon"></i>
+                <div class="stat-number"><span class="counter" data-target="90">0</span>%</div>
+                <p>Database & MySQL</p>
+            </div>
+
+            <!-- Kartu Statistik 3 -->
+            <div class="stat-card tilt-card">
+                <i class="fab fa-java stat-icon"></i>
+                <div class="stat-number"><span class="counter" data-target="70">0</span>%</div>
+                <p>Java OOP</p>
+            </div>
+
+            <!-- Kartu Statistik 4 -->
+            <div class="stat-card tilt-card">
+                <i class="fas fa-graduation-cap stat-icon"></i>
+                <h3 class="counter" data-target="2">0</h3>
+                <p>Riwayat Pendidikan</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION PRESTASI & SERTIFIKAT (dengan class reveal) -->
+    <section id="achievements" class="achievements reveal">
+        <h2>Prestasi & Sertifikat</h2>
+        <div class="achievement-grid">
+            
+            <div class="achievement-card">
+                <div class="ach-icon"><i class="fas fa-certificate"></i></div>
+                <div class="ach-info">
+                    <h3>Sertifikat Kompetensi Keahlian (Kompeten)</h3>
+                    <p class="ach-org">SMKN 1 Blitar & CV. FIA Sejahtera Abadi</p>
+                    <p class="ach-desc">Telah mengikuti Uji Kompetensi Keahlian pada Kompetensi Keahlian Teknik Komputer dan Jaringan dengan predikat Kompeten.</p>
+                </div>
+            </div>
+
+            <div class="achievement-card">
+                <div class="ach-icon"><i class="fas fa-medal"></i></div>
+                <div class="ach-info">
+                    <h3>Peraih Medali Perak Bidang Bahasa Inggris</h3>
+                    <p class="ach-org">Radar Science Competition (RSC) 2025</p>
+                    <p class="ach-desc">Peringkat 6 dari 34 Peserta Jenjang SMP/MTS/Sederajat tingkat Nasional yang diselenggarakan oleh PT Pateron Edukasi Indonesia x Radar Blitar.</p>
+                </div>
+            </div>
+
+            <div class="achievement-card">
+                <div class="ach-icon"><i class="fas fa-trophy"></i></div>
+                <div class="ach-info">
+                    <h3>Peringkat 4 - Bidang Bahasa Inggris (SMA/SMK)</h3>
+                    <p class="ach-org">Blitar Olympiad of Science (BIOS) 2026</p>
+                    <p class="ach-desc">Meraih Peringkat 4 dari 90 Peserta pada babak penyisihan olimpiade yang diselenggarakan oleh Pateron Indonesia.</p>
+                </div>
+            </div>
+
+            <div class="achievement-card">
+                <div class="ach-icon"><i class="fas fa-award"></i></div>
+                <div class="ach-info">
+                    <h3>Juara 4 Bahasa Inggris Level 4</h3>
+                    <p class="ach-org">Jenius Science Olympiad (JSO) 2025</p>
+                    <p class="ach-desc">Atas prestasinya dalam Babak Penyisihan Jenius Science Olympiad yang diselenggarakan oleh Yayasan Intan Mutia.</p>
+                </div>
+            </div>
+
+            <div class="achievement-card">
+                <div class="ach-icon"><i class="fas fa-star"></i></div>
+                <div class="ach-info">
+                    <h3>Finalis Provinsi - Bahasa Inggris Level 4</h3>
+                    <p class="ach-org">Jenius Science Olympiad (JSO) 2025</p>
+                    <p class="ach-desc">Menjadi Finalis Provinsi Jawa Timur pada ajang Jenius Science Olympiad (JSO) Tahun 2025.</p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Tombol Buka Folder Galeri -->
+        <div style="text-align: center; margin-top: 3rem;">
+            <button class="btn" onclick="openModal(0)"><i class="fas fa-folder-open"></i> Buka Galeri Sertifikat</button>
+        </div>
+    </section>
+
+    <!-- SECTION PROJECTS (dengan class reveal) -->
+    <section id="projects" class="projects reveal">
+        <h2>Proyek Saya</h2>
+        <div class="project-grid" id="projectGrid">
+            <!-- Kartu proyek digenerate otomatis via JavaScript -->
+        </div>
+    </section>
+
+    <!-- SECTION CONTACT (dengan class reveal) -->
+    <section id="contact" class="contact reveal">
+        <h2>Hubungi Saya</h2>
+        <div class="contact-container">
+            <form action="https://formsubmit.co/arshavindganazaru266@gmail.com" method="POST" id="contactForm">
+                <input type="text" name="name" placeholder="Nama Anda" required>
+                <input type="email" name="email" placeholder="Email Anda" required>
+                <textarea name="message" rows="5" placeholder="Pesan Anda..." required></textarea>
+                
+                <!-- Pengaturan Tambahan FormSubmit -->
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_subject" value="Pesan Baru dari Portofolio Web!">
+                
+                <button type="submit" class="btn">Kirim Pesan</button>
+            </form>
+
+            <div class="social-links">
+                <a href="https://github.com/arshavin128" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://instagram.com/ega.anotherwrld" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
     <footer>
-        <p>&copy; 2026 Arshavin Dega Nazaro (XI TJKT 1 - No. Absen 10). All Rights Reserved.</p>
+        <p>&copy; 2026 Arshavin Dega Nazaro. Dibuat dengan semangat TJKT SMKN 1 Blitar.</p>
     </footer>
 
-    <!-- 13. MODAL GALERI SERTIFIKAT -->
-    <div id="imageModal" class="modal">
-        <span class="close-modal">&times;</span>
-        <img class="modal-content" id="modalImg" alt="Preview Sertifikat">
-        <div id="modalCaption"></div>
+    <!-- MODAL GALERI FOTO SERTIFIKAT -->
+    <div id="certModal" class="modal">
+        <span class="close-modal" onclick="closeModal()">&times;</span>
+        <button class="prev-btn" onclick="changeSlide(-1)">&#10094;</button>
+        <img class="modal-content" id="modalImg" alt="Foto Sertifikat">
+        <button class="next-btn" onclick="changeSlide(1)">&#10095;</button>
+        <div id="modalCaption" class="modal-caption"></div>
     </div>
 
-    <!-- 14. TOMBOL MELAYANG BACK TO TOP -->
-    <button id="backToTop" aria-label="Kembali ke atas" title="Kembali ke atas">
-        <i class="fas fa-arrow-up"></i>
-    </button>
-
-    <!-- 15. WADAH NOTIFIKASI TOAST -->
-    <div id="toast-container"></div>
-
-    <!-- JAVASCRIPT UTAMA -->
+    <!-- Menghubungkan file JavaScript -->
     <script src="assets/js/script.js"></script>
 </body>
 </html>

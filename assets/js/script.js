@@ -65,11 +65,11 @@ themeToggle.addEventListener('click', () => {
     }
 });
 
-// 4. Pengiriman Form Kontak Nyata dengan Toast Notification
+// // 4. Pengiriman Form Kontak Nyata (FormSubmit via AJAX)
 const contactForm = document.getElementById('contactForm');
 if (contactForm) {
     contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
+        e.preventDefault(); // Mencegah reload halaman
         
         const formData = new FormData(this);
 
@@ -81,13 +81,13 @@ if (contactForm) {
             }
         }).then(response => {
             if (response.ok) {
-                showToast('Pesan berhasil terkirim ke email saya!', 'success');
+                alert('Terima kasih! Pesan Anda telah berhasil terkirim ke email saya.');
                 contactForm.reset();
             } else {
-                showToast('Gagal mengirim pesan. Silakan coba lagi.', 'error');
+                alert('Gagal mengirim pesan. Silakan coba lagi nanti.');
             }
         }).catch(error => {
-            showToast('Terjadi kesalahan koneksi internet.', 'error');
+            alert('Terjadi kesalahan koneksi.');
         });
     });
 }
@@ -161,57 +161,19 @@ document.querySelectorAll('.reveal').forEach(element => {
     revealObserver.observe(element);
 });
 
-// 7. Animated Cyber Welcome Screen (Durasi Lebih Lama & Santai)
-window.addEventListener('DOMContentLoaded', () => {
+// 7. Otomatisasi Welcome Intro Screen
+window.addEventListener('load', () => {
     const welcomeScreen = document.getElementById('welcome-screen');
-    const progressBar = document.getElementById('welcomeProgress');
-    const percentText = document.getElementById('loading-percent');
-    const statusText = document.getElementById('loading-status');
-    const typewriterEl = document.getElementById('typewriter');
+    if (welcomeScreen) {
+        // Kunci sementara scroll layar saat intro berjalan
+        document.body.style.overflow = 'hidden';
 
-    if (!welcomeScreen) return;
-
-    document.body.style.overflow = 'hidden';
-
-    // 1. Efek Ketik Otomatis (Diperlambat ke 70ms per huruf)
-    const textToType = "Arshavin Dega Nazaro | XI TJKT 1";
-    let charIndex = 0;
-
-    function typeEffect() {
-        if (charIndex < textToType.length) {
-            typewriterEl.textContent += textToType.charAt(charIndex);
-            charIndex++;
-            setTimeout(typeEffect, 70); // Ubah angka ini jika ingin lebih lambat/cepat
-        }
+        setTimeout(() => {
+            welcomeScreen.classList.add('fade-out');
+            // Kembalikan scroll layar setelah intro menghilang
+            document.body.style.overflow = 'auto';
+        }, 2400); // Intro akan berjalan selama 2.4 detik
     }
-    typeEffect();
-
-    // 2. Hitungan Persentase & Loading Bar (Diperlambat ke 65ms per update)
-    let progress = 0;
-    const interval = setInterval(() => {
-        progress += Math.floor(Math.random() * 2) + 1; // Naik 1-2% per langkah
-
-        if (progress >= 35 && progress < 70) {
-            statusText.textContent = "LOADING SYSTEM MODULES...";
-        } else if (progress >= 70 && progress < 95) {
-            statusText.textContent = "PREPARING INTERFACE...";
-        }
-
-        if (progress >= 100) {
-            progress = 100;
-            clearInterval(interval);
-            statusText.textContent = "SYSTEM READY!";
-            
-            // Jeda 1.2 detik (1200ms) sebelum tirai naik
-            setTimeout(() => {
-                welcomeScreen.classList.add('fade-out');
-                document.body.style.overflow = 'auto';
-            }, 1200); 
-        }
-
-        progressBar.style.width = progress + '%';
-        percentText.textContent = progress + '%';
-    }, 65); // Ubah angka ini untuk mengatur total lama loading
 });
 
 // =========================================
@@ -289,89 +251,3 @@ window.addEventListener('scroll', () => {
     const progressBar = document.getElementById('scroll-progress');
     if (progressBar) progressBar.style.width = scrolled + '%';
 });
-
-// =========================================
-// 10. TEKS ROLE BERGANTI OTOMATIS (HERO)
-// =========================================
-const typingRoleEl = document.getElementById('typing-role');
-if (typingRoleEl) {
-    const roles = [
-        "Networking & IP Subnetting",
-        "Database & MySQL Administrator",
-        "Java OOP Programmer",
-        "Web Developer"
-    ];
-    let roleIndex = 0;
-    let charIndex = 0;
-    let isDeleting = false;
-
-    function typeRoleLoop() {
-        const currentRole = roles[roleIndex];
-        
-        if (isDeleting) {
-            typingRoleEl.textContent = currentRole.substring(0, charIndex - 1);
-            charIndex--;
-        } else {
-            typingRoleEl.textContent = currentRole.substring(0, charIndex + 1);
-            charIndex++;
-        }
-
-        let speed = isDeleting ? 45 : 85;
-
-        if (!isDeleting && charIndex === currentRole.length) {
-            speed = 1800; // Jeda saat teks selesai diketik
-            isDeleting = true;
-        } else if (isDeleting && charIndex === 0) {
-            isDeleting = false;
-            roleIndex = (roleIndex + 1) % roles.length;
-            speed = 400;
-        }
-
-        setTimeout(typeRoleLoop, speed);
-    }
-
-    typeRoleLoop();
-}
-
-// =========================================
-// 11. TOMBOL BACK TO TOP
-// =========================================
-const backToTopBtn = document.getElementById('backToTop');
-if (backToTopBtn) {
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 350) {
-            backToTopBtn.classList.add('show');
-        } else {
-            backToTopBtn.classList.remove('show');
-        }
-    });
-
-    backToTopBtn.addEventListener('click', () => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
-    });
-}
-
-// =========================================
-// 12. FUNGSI TOAST NOTIFICATION
-// =========================================
-function showToast(message, type = 'success') {
-    const container = document.getElementById('toast-container');
-    if (!container) return;
-
-    const toast = document.createElement('div');
-    toast.className = `toast ${type}`;
-    
-    const iconClass = type === 'error' ? 'fas fa-exclamation-circle' : 'fas fa-check-circle';
-    toast.innerHTML = `<i class="${iconClass}"></i><span>${message}</span>`;
-    
-    container.appendChild(toast);
-
-    // Hilangkan otomatis setelah 3.5 detik
-    setTimeout(() => {
-        toast.classList.add('hide');
-        toast.addEventListener('animationend', () => toast.remove());
-    }, 3500);
-}
