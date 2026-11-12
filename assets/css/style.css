@@ -1017,3 +1017,182 @@ header {
     z-index: 10000;
     transition: width 0.1s ease-out;
 }
+
+/* =========================================
+   OBJEK BIODATA (TANGGAL LAHIR & DOMISILI)
+   ========================================= */
+.biodata-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.2rem;
+    margin-top: 1.5rem;
+}
+
+.biodata-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.1rem 1.3rem;
+    background-color: var(--card-bg) !important;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+    transition: transform 0.2s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.biodata-item:hover {
+    border-color: var(--primary-color, #0d9488);
+    box-shadow: 0 6px 18px rgba(13, 148, 136, 0.15);
+}
+
+.biodata-icon {
+    width: 45px;
+    height: 45px;
+    border-radius: 10px;
+    background: rgba(13, 148, 136, 0.12);
+    color: var(--primary-color, #0d9488);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    flex-shrink: 0;
+}
+
+body.dark-mode .biodata-icon {
+    background: rgba(56, 189, 248, 0.15);
+    color: #38bdf8;
+}
+
+.biodata-info {
+    text-align: left;
+}
+
+.biodata-label {
+    display: block;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    opacity: 0.7;
+    margin-bottom: 0.2rem;
+}
+
+.biodata-value {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-color);
+    margin: 0;
+}
+
+/* =========================================
+   FITUR 2: TYPING ROLE CURSOR (HERO)
+   ========================================= */
+#typing-role {
+    color: var(--primary-color, #0d9488);
+    font-weight: 700;
+}
+
+.typing-cursor {
+    color: var(--primary-color, #0d9488);
+    font-weight: bold;
+    animation: cursorBlink 0.7s infinite;
+}
+
+@keyframes cursorBlink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* =========================================
+   FITUR 3A: TOMBOL BACK TO TOP
+   ========================================= */
+#backToTop {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: var(--primary-color, #0d9488);
+    color: #ffffff;
+    border: none;
+    font-size: 1.1rem;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(13, 148, 136, 0.35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+    z-index: 9998;
+}
+
+#backToTop.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+#backToTop:hover {
+    transform: translateY(-4px);
+    filter: brightness(1.1);
+}
+
+/* =========================================
+   FITUR 3B: TOAST NOTIFICATION MODERN
+   ========================================= */
+#toast-container {
+    position: fixed;
+    top: 85px;
+    right: 25px;
+    z-index: 10005;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.toast {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    min-width: 280px;
+    max-width: 360px;
+    padding: 1rem 1.2rem;
+    background: var(--card-bg);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    border-left: 5px solid var(--primary-color, #0d9488);
+    border-radius: 10px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    font-size: 0.9rem;
+    font-weight: 500;
+    animation: toastSlideIn 0.4s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+.toast.error {
+    border-left-color: #ef4444;
+}
+
+.toast i {
+    font-size: 1.2rem;
+    color: var(--primary-color, #0d9488);
+}
+
+.toast.error i {
+    color: #ef4444;
+}
+
+.toast.hide {
+    animation: toastSlideOut 0.4s ease forwards;
+}
+
+@keyframes toastSlideIn {
+    from { transform: translateX(120%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes toastSlideOut {
+    from { transform: translateX(0); opacity: 1; }
+    to { transform: translateX(120%); opacity: 0; }
+}

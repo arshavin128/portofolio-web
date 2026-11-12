@@ -65,11 +65,11 @@ themeToggle.addEventListener('click', () => {
     }
 });
 
-// // 4. Pengiriman Form Kontak Nyata (FormSubmit via AJAX)
+// 4. Pengiriman Form Kontak Nyata dengan Toast Notification
 const contactForm = document.getElementById('contactForm');
 if (contactForm) {
     contactForm.addEventListener('submit', function(e) {
-        e.preventDefault(); // Mencegah reload halaman
+        e.preventDefault();
         
         const formData = new FormData(this);
 
@@ -81,13 +81,13 @@ if (contactForm) {
             }
         }).then(response => {
             if (response.ok) {
-                alert('Terima kasih! Pesan Anda telah berhasil terkirim ke email saya.');
+                showToast('Pesan berhasil terkirim ke email saya!', 'success');
                 contactForm.reset();
             } else {
-                alert('Gagal mengirim pesan. Silakan coba lagi nanti.');
+                showToast('Gagal mengirim pesan. Silakan coba lagi.', 'error');
             }
         }).catch(error => {
-            alert('Terjadi kesalahan koneksi.');
+            showToast('Terjadi kesalahan koneksi internet.', 'error');
         });
     });
 }
@@ -289,3 +289,89 @@ window.addEventListener('scroll', () => {
     const progressBar = document.getElementById('scroll-progress');
     if (progressBar) progressBar.style.width = scrolled + '%';
 });
+
+// =========================================
+// 10. TEKS ROLE BERGANTI OTOMATIS (HERO)
+// =========================================
+const typingRoleEl = document.getElementById('typing-role');
+if (typingRoleEl) {
+    const roles = [
+        "Networking & IP Subnetting",
+        "Database & MySQL Administrator",
+        "Java OOP Programmer",
+        "Web Developer"
+    ];
+    let roleIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+
+    function typeRoleLoop() {
+        const currentRole = roles[roleIndex];
+        
+        if (isDeleting) {
+            typingRoleEl.textContent = currentRole.substring(0, charIndex - 1);
+            charIndex--;
+        } else {
+            typingRoleEl.textContent = currentRole.substring(0, charIndex + 1);
+            charIndex++;
+        }
+
+        let speed = isDeleting ? 45 : 85;
+
+        if (!isDeleting && charIndex === currentRole.length) {
+            speed = 1800; // Jeda saat teks selesai diketik
+            isDeleting = true;
+        } else if (isDeleting && charIndex === 0) {
+            isDeleting = false;
+            roleIndex = (roleIndex + 1) % roles.length;
+            speed = 400;
+        }
+
+        setTimeout(typeRoleLoop, speed);
+    }
+
+    typeRoleLoop();
+}
+
+// =========================================
+// 11. TOMBOL BACK TO TOP
+// =========================================
+const backToTopBtn = document.getElementById('backToTop');
+if (backToTopBtn) {
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 350) {
+            backToTopBtn.classList.add('show');
+        } else {
+            backToTopBtn.classList.remove('show');
+        }
+    });
+
+    backToTopBtn.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+}
+
+// =========================================
+// 12. FUNGSI TOAST NOTIFICATION
+// =========================================
+function showToast(message, type = 'success') {
+    const container = document.getElementById('toast-container');
+    if (!container) return;
+
+    const toast = document.createElement('div');
+    toast.className = `toast ${type}`;
+    
+    const iconClass = type === 'error' ? 'fas fa-exclamation-circle' : 'fas fa-check-circle';
+    toast.innerHTML = `<i class="${iconClass}"></i><span>${message}</span>`;
+    
+    container.appendChild(toast);
+
+    // Hilangkan otomatis setelah 3.5 detik
+    setTimeout(() => {
+        toast.classList.add('hide');
+        toast.addEventListener('animationend', () => toast.remove());
+    }, 3500);
+}
