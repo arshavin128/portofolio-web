@@ -45,7 +45,8 @@
     <header>
         <nav class="navbar">
             <a href="#home" class="logo">Ega<span>.TJKT</span></a>
-            <ul class="nav-links">
+            
+            <ul class="nav-links" id="navLinks">
                 <li><a href="#home">Beranda</a></li>
                 <li><a href="#about">Tentang</a></li>
                 <li><a href="#education">Pendidikan</a></li>
@@ -54,9 +55,15 @@
                 <li><a href="#achievements">Prestasi</a></li>
                 <li><a href="#contact">Kontak</a></li>
             </ul>
-            <button id="theme-toggle" aria-label="Ganti Tema Gelap/Terang">
-                <i class="fas fa-moon"></i>
-            </button>
+
+            <div class="nav-actions">
+                <button id="theme-toggle" aria-label="Ganti Tema Gelap/Terang">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button id="menu-toggle" aria-label="Buka Menu Navigasi">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
         </nav>
     </header>
 

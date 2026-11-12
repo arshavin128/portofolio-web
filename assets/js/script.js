@@ -414,3 +414,44 @@ if (contactForm) {
         });
     });
 }
+
+// =========================================
+// 10. MENU HAMBURGER NAVBAR MOBILE
+// =========================================
+const menuToggleBtn = document.getElementById('menu-toggle');
+const navLinksMenu = document.getElementById('navLinks');
+
+if (menuToggleBtn && navLinksMenu) {
+    const menuIcon = menuToggleBtn.querySelector('i');
+
+    function closeMobileMenu() {
+        navLinksMenu.classList.remove('active');
+        if (menuIcon) {
+            menuIcon.classList.replace('fa-times', 'fa-bars');
+        }
+    }
+
+    menuToggleBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isOpen = navLinksMenu.classList.toggle('active');
+        if (menuIcon) {
+            if (isOpen) {
+                menuIcon.classList.replace('fa-bars', 'fa-times');
+            } else {
+                menuIcon.classList.replace('fa-times', 'fa-bars');
+            }
+        }
+    });
+
+    // Otomatis tutup menu saat salah satu link diklik
+    navLinksMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', closeMobileMenu);
+    });
+
+    // Otomatis tutup menu jika menyentuh area di luar navbar
+    document.addEventListener('click', (e) => {
+        if (!navLinksMenu.contains(e.target) && !menuToggleBtn.contains(e.target)) {
+            closeMobileMenu();
+        }
+    });
+}
